@@ -1,8 +1,10 @@
 // eslint-disable-next-line react/prop-types
 const OnBoard = ({ children }: any) => {
   return (
-    <div>
-      <div>{children}</div>
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-background-foreground p-10 rounded-xl min-w-[400px]">
+        {children}
+      </div>
     </div>
   );
 };

@@ -19,7 +19,7 @@ export const StudentDashboard = () => {
   const [showQRScanner, setShowQRScanner] = useState(false);
 
   return (
-    <div style={{ maxWidth: 1200, margin: "auto", padding: "20px" }}>
+    <div>
       <Typography variant="h4" gutterBottom>
         Student Dashboard
       </Typography>

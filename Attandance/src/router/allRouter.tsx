@@ -11,7 +11,7 @@ import { AdminDashboard } from "@/pages/adminDashboard/page";
 const privateRoutes = [
   {
     path: "/",
-    element: <Navigate to={PATH.SignUp} />,
+    element: <Navigate to={PATH.SignIn} />,
   },
   {
     path: PATH.StudentDashboard,
@@ -25,15 +25,11 @@ const privateRoutes = [
     path: PATH.AdminDashboard,
     element: <AdminDashboard />,
   },
-  // {
-  //   path: PATH.Setting,
-  //   element: "",
-  // },
 ];
 
 const publicRoutes = [
   {
-    path: PATH.SignUp,
+    path: PATH.SignIn,
     element: <SignIn />,
   },
 ];

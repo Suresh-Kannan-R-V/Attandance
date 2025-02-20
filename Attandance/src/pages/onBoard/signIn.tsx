@@ -27,12 +27,9 @@ export const SignIn = () => {
 
   return (
     <OnBoard>
-      <div style={{ maxWidth: 400, margin: "50px auto", textAlign: "center" }}>
+      <div >
         <h2>BIT Attendance Portal</h2>
-        <form
-          onSubmit={(e) => handleSubmit(e)}
-          style={{ display: "flex", flexDirection: "column", gap: "16px" }}
-        >
+        <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-4">
           <TextField
             label="Email"
             type="email"
@@ -56,18 +53,10 @@ export const SignIn = () => {
           </Button>
         </form>
 
-        <div
-          style={{ margin: "16px 0", display: "flex", alignItems: "center" }}
-        >
-          <hr
-            style={{ flex: 1, border: "none", borderTop: "1px solid #ccc" }}
-          />
-          <span style={{ margin: "0 12px", fontSize: "12px", color: "#777" }}>
-            Or continue with
-          </span>
-          <hr
-            style={{ flex: 1, border: "none", borderTop: "1px solid #ccc" }}
-          />
+        <div className="flex items-center my-4">
+          <hr className="flex-1 border-t-1" />
+          <span className=" mx-3 text-xs text-content1">Or continue with</span>
+          <hr className="flex-1 border-t-1" />
         </div>
 
         <Button
