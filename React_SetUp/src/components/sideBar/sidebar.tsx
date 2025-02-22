@@ -17,7 +17,6 @@ export type NavItemProps = {
 
 export type SidebarProps = {
   items?: NavItemProps[];
-  activeKey?: string; // Active key for selected item
   onSideBarChange: (data: NavItemProps) => void; // Callback for navigation change
   onPressColorMode?: () => void; // Toggle dark mode callback
   onPressLogout?: () => void; // Logout callback
@@ -31,7 +30,6 @@ export type SidebarProps = {
 export const Sidebar = (props: SidebarProps) => {
   const {
     className,
-    activeKey = "",
     items = [],
     onSideBarChange = () => {},
     onPressColorMode = () => {},

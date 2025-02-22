@@ -1,7 +1,3 @@
-import { useInitialSetUp } from "@/context/initialSetUp";
-import { getSidebarMenu, useDarkMode } from "@/utils/sideMenu";
-import React from "react";
-import { NavItemProps, Sidebar } from "./sidebar";
 import {
   DashboardIcon,
   LooksOneIcon,
@@ -9,9 +5,13 @@ import {
   PeopleAltIcon,
   PersonIcon,
 } from "@/assets/icons";
+import { useInitialSetUp } from "@/context/initialSetUp";
+import { getSidebarMenu, useDarkMode } from "@/utils/sideMenu";
+import React from "react";
+import { NavItemProps, Sidebar } from "./sidebar";
 
 export const WithSideBar = () => {
-  const { URLPath, navigateTo } = useInitialSetUp();
+  const { navigateTo } = useInitialSetUp();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const onSideBarChange = (data: NavItemProps) => {
@@ -54,7 +54,6 @@ export const WithSideBar = () => {
     <>
       <Sidebar
         items={defaultItems}
-        activeKey={URLPath}
         onSideBarChange={onSideBarChange}
         onPressColorMode={toggleDarkMode}
         onPressLogout={handleLogOut}
