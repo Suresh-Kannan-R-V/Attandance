@@ -1,5 +1,4 @@
 import { useRoutes } from "react-router-dom";
-
 import { privateRoutes, publicRoutes } from "./allRouter";
 import Layout from "@/layout/layout";
 

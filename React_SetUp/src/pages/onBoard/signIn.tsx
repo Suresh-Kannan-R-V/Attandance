@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
 import OnBoard from "./onBoard";
+import { Button, Input } from "@heroui/react";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = () => {
     // Role-based navigation
     if (email.includes("student")) {
-      navigate("/student-dashboard");
-    } else if (email.includes("teacher")) {
-      navigate("/teacher-dashboard");
-    } else if (email.includes("admin")) {
-      navigate("/admin-dashboard");
+      navigate("/dashboard");
     }
   };
 
@@ -27,28 +21,23 @@ export const SignIn = () => {
 
   return (
     <OnBoard>
-      <div >
-        <h2>BIT Attendance Portal</h2>
-        <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-4">
-          <TextField
+      <div>
+        <form onSubmit={(e) => handleSubmit()} className="flex flex-col gap-4">
+          <Input
             label="Email"
             type="email"
-            fullWidth
-            variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <TextField
+          <Input
             label="Password"
             type="password"
-            fullWidth
-            variant="outlined"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button type="submit" color="primary">
             Sign In
           </Button>
         </form>
@@ -60,10 +49,12 @@ export const SignIn = () => {
         </div>
 
         <Button
-          variant="outlined"
+          variant="bordered"
+          color="secondary"
+          type="submit"
           fullWidth
-          onClick={handleGoogleSignIn}
-          startIcon={
+          onPress={handleGoogleSignIn}
+          startContent={
             <svg
               width="20"
               height="20"

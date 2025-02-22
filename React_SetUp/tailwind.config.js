@@ -12,6 +12,46 @@ module.exports = {
   theme: {
     extend: {
       colors: {},
+      fontWeight: {
+        regular: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+      },
+      fontSize: {
+        f11: [
+          "0.6875rem",
+          { lineHeight: "0.6875rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f12: [
+          "0.75rem",
+          { lineHeight: "0.75rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f14: [
+          "0.875rem",
+          { lineHeight: "0.875rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f16: [
+          "1rem",
+          { lineHeight: "1rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f18: [
+          "1.125rem",
+          { lineHeight: "1.125rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f20: [
+          "1.25rem",
+          { lineHeight: "1.25rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f24: [
+          "1.5rem",
+          { lineHeight: "1.5rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+        f26: [
+          "1.625rem",
+          { lineHeight: "1.625rem", letterSpacing: "0%", fontWeight: "600" },
+        ],
+      },
     },
   },
   darkMode: "class",
@@ -29,8 +69,8 @@ module.exports = {
               DEFAULT: "#539bff",
             },
             background: {
-              DEFAULT: "#F1F5F9",
-              foreground: "#FFFFFF",
+              DEFAULT: "#FFFFFF",
+              foreground: "#F1EFF9",
             },
             content1: {
               DEFAULT: "#171A1C",
@@ -45,8 +85,8 @@ module.exports = {
               DEFAULT: "#539bff",
             },
             background: {
-              DEFAULT: "#1A202C",
-              foreground: "#020C17",
+              DEFAULT: "#1C1A27",
+              foreground: "#322E40",
             },
             content1: {
               DEFAULT: "#FCFBFC",

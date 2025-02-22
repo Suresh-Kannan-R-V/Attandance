@@ -1,6 +1,11 @@
-import { AppRoutes } from "./router/routes";
+import { InitialSetUpStoreProvider } from "@/context/initialSetUp";
+import { AppRoutes } from "@/router/routes";
 function App() {
-  return <AppRoutes />;
+  return (
+    <InitialSetUpStoreProvider>
+      <AppRoutes />
+    </InitialSetUpStoreProvider>
+  );
 }
 
 export default App;

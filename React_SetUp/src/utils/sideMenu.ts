@@ -1,6 +1,6 @@
 import React from "react";
 
-const isStudent: boolean = false;
+const isStudent: boolean = true;
 
 interface SidebarItem {
     key: string;
@@ -10,13 +10,13 @@ interface SidebarItem {
 export const getSidebarMenu = (): SidebarItem[] =>
     isStudent
         ? [
-            { key: "Dashboard", route: `/student-dashboard`, },
-            { key: "page2", route: "/teacher-dashboard" },
-            { key: "student", route: "" },
+            { key: "Dashboard", route: `/dashboard`, },
+            { key: "page1", route: "/page1" },
+            { key: "student", route: "/student" },
         ]
         : [
             { key: "Dashboard", route: "/dashboard", },
-            { key: "page3", route: "/page3" },
+            { key: "page2", route: "/page2" },
             { key: "admin", route: "/admin-dashboard", },
         ];
 

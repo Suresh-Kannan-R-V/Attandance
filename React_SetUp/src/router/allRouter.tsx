@@ -1,35 +1,38 @@
 import { Navigate } from "react-router-dom";
-
-import { PATH } from "./path";
 import { SignIn } from "@/pages";
-import { StudentDashboard } from "@/pages/studentDashboard/page";
-import { TeacherDashboard } from "@/pages/teacherDashboard/page";
-import { AdminDashboard } from "@/pages/adminDashboard/page";
-
-// export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);
+import { Admin, Dashboard, Page1, Page2, Student } from "@/pages/screens";
+import { PATH } from "./path";
 
 const privateRoutes = [
   {
     path: "/",
-    element: <Navigate to={PATH.SignIn} />,
+    element: <Navigate to={PATH.signIn} />,
   },
   {
-    path: PATH.StudentDashboard,
-    element: <StudentDashboard />,
+    path: PATH.dashBoard,
+    element: <Dashboard />,
   },
   {
-    path: PATH.TeachersDashboard,
-    element: <TeacherDashboard />,
+    path: PATH.student,
+    element: <Student />,
   },
   {
-    path: PATH.AdminDashboard,
-    element: <AdminDashboard />,
+    path: PATH.admin,
+    element: <Admin />,
+  },
+  {
+    path: PATH.page1,
+    element: <Page1 />,
+  },
+  {
+    path: PATH.page2,
+    element: <Page2 />,
   },
 ];
 
 const publicRoutes = [
   {
-    path: PATH.SignIn,
+    path: PATH.signIn,
     element: <SignIn />,
   },
 ];
