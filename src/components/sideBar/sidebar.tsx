@@ -5,7 +5,7 @@ import {
   LogoutIcon,
 } from "@/assets/icons";
 import { useInitialSetUp } from "@/context/initialSetUp";
-import { cn, Divider } from "@heroui/react";
+import { cn, Divider, Tooltip } from "@heroui/react";
 import React, { useMemo } from "react";
 
 export type NavItemProps = {
@@ -24,20 +24,24 @@ export type SidebarProps = {
   isDarkMode?: boolean;
   className?: string;
   Logo?: React.ReactNode | string;
-  profileImage?: React.ReactNode | string;
+  profileImage?: string;
+  userName?: string;
+  Email?: string;
 };
 
 export const Sidebar = (props: SidebarProps) => {
   const {
     className,
     items = [],
-    onSideBarChange = () => {},
-    onPressColorMode = () => {},
-    onPressLogout = () => {},
-    profileImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdmrjoiXGVFEcd1cX9Arb1itXTr2u8EKNpw&s",
+    onSideBarChange = () => { },
+    onPressColorMode = () => { },
+    onPressLogout = () => { },
+    profileImage,
     Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR12mA3zSzz_9SWnLm4B_0OocWAQhpAnaAzYA&s",
     isColorMode,
     isDarkMode,
+    userName,
+    Email,
   } = props;
   const { URLPath, isSideBarOpen, setIsSideBarOpen } = useInitialSetUp();
 
@@ -143,15 +147,27 @@ export const Sidebar = (props: SidebarProps) => {
               <Divider />
             </div>
             {/* Profile Image */}
-            <div className="py-3.5 flex justify-center">
-              <img
-                alt="P"
-                className="rounded-full w-[46px] h-[46px] bg-secondary bg-opacity-35"
-                src={
-                  typeof profileImage === "string" ? profileImage : undefined
-                }
-              />
-            </div>
+            <Tooltip showArrow placement="right" content={
+              <div>
+                <h1>{userName}</h1>
+                <h3>{Email}</h3>
+              </div>
+            }
+              classNames={{
+                base: ["before:bg-background-foreground "],
+                content: ["px-4 py-2 font-semibold ", "bg-background-foreground"],
+              }}
+            >
+              <div className="pb-3.5 flex justify-center">
+                <img
+                  alt="P"
+                  className="rounded-full w-10 h-10 cursor-pointer"
+                  src={
+                    typeof profileImage === "string" ? profileImage : undefined
+                  }
+                />
+              </div>
+            </Tooltip>
           </div>
         </div>
       </div>

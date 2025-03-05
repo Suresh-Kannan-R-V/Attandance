@@ -6,6 +6,8 @@ interface InitialSetUpState {
   navigateTo: (path: string) => void;
   isSideBarOpen: boolean;
   setIsSideBarOpen: (status: boolean) => void;
+  userLoginData: any;
+  setUserLoginData: (status: any) => void;
 }
 
 // Create context (initially undefined to enforce usage inside the provider)
@@ -22,6 +24,7 @@ export const InitialSetUpStoreProvider = ({
   const location = useLocation();
   const navigate = useNavigate();
   const [isSideBarOpen, setIsSideBarOpen] = React.useState<boolean>(true);
+  const [userLoginData, setUserLoginData] = React.useState<any>("");
 
   // Toggle sidebar on mobile screens
   React.useEffect(() => {
@@ -38,6 +41,8 @@ export const InitialSetUpStoreProvider = ({
         navigateTo: navigate,
         isSideBarOpen,
         setIsSideBarOpen,
+        userLoginData,
+        setUserLoginData,
       }}
     >
       {children}

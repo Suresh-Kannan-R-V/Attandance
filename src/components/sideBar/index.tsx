@@ -9,9 +9,10 @@ import { useInitialSetUp } from "@/context/initialSetUp";
 import { getSidebarMenu, useDarkMode } from "@/utils/sideMenu";
 import React from "react";
 import { NavItemProps, Sidebar } from "./sidebar";
+import { googleLogout } from "@react-oauth/google";
 
 export const WithSideBar = () => {
-  const { navigateTo } = useInitialSetUp();
+  const { navigateTo, userLoginData, setUserLoginData } = useInitialSetUp();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const onSideBarChange = (data: NavItemProps) => {
@@ -20,8 +21,13 @@ export const WithSideBar = () => {
     }
   };
 
+  console.log(userLoginData, "jshdgjhaj");
+
   const handleLogOut = () => {
+    googleLogout();
+    setUserLoginData({});
     navigateTo("/signIn");
+
   };
 
   const getIcon = (key: string) => {
@@ -58,6 +64,9 @@ export const WithSideBar = () => {
         onPressColorMode={toggleDarkMode}
         onPressLogout={handleLogOut}
         isDarkMode={isDarkMode}
+        profileImage={userLoginData?.picture}
+        userName={userLoginData?.name}
+        Email={userLoginData?.email}
       />
     </>
   );
