@@ -1,18 +1,10 @@
 import { useInitialSetUp } from "@/context/initialSetUp";
+import { PATH } from "@/router/path";
 import { Button, Input } from "@heroui/react";
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import OnBoard from "./onBoard";
-import React from "react";
+import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-
-
-interface GoogleUser {
-  email: string;
-  name: string;
-  picture: string;
-  sub: string;
-}
+import React from "react";
+import OnBoard from "./onBoard";
 
 export const SignIn = () => {
   const [email, setEmail] = React.useState("");
@@ -27,11 +19,12 @@ export const SignIn = () => {
     console.log(loginResponse);
     const decodedData = jwtDecode<any>(loginResponse.credential);
     setUserLoginData(decodedData);
-    navigateTo("/dashboard");
+    navigateTo(`${PATH.dashBoard}`);
   }
 
-  const handleOnError = (error: any) => {
-    console.log("Login Failed:", error);
+  const handleOnError = () => {
+    console.log("Login Failed:");
+    navigateTo(`${PATH.signIn}`);
   }
 
   return (
@@ -64,10 +57,8 @@ export const SignIn = () => {
         </div>
 
         <div className="flex justify-center">
-          <GoogleLogin onSuccess={(res) => handleOnSuccess(res)} onError={(e) => handleOnError(e)} />
+          <GoogleLogin onSuccess={(res) => handleOnSuccess(res)} onError={() => handleOnError()} />
         </div>
-
-
       </div>
     </OnBoard>
   );
